@@ -1,25 +1,302 @@
-‎Data Utama Pengantin
-‎
-‎​Nama Panggilan Mempelai Pria: Faizal
-‎​Nama Lengkap Mempelai Pria: Rini
-‎​Nama Orang Tua Mempelai Pria: [ Putra dari Bapak (Abdul manaf) & Ibu (juniyanti)
-‎​Nama Panggilan Mempelai Wanita: [ Rike ]
-‎​Nama Lengkap Mempelai Wanita: [ Ike ]
-‎​Nama Orang Tua Mempelai Wanita: [ Putri dari Bapak (pak wien) & Ibu (Bu wien) ]
-‎​2. Detail Acara Akad Nikah
-‎​Hari & Tanggal: [ : Kamis, 20 Agustus 2026 ]
-‎​Waktu (WIB): [ Contoh: 08.00 WIB - Selesai ]
-‎​Nama Tempat: [kediaman mempelai wanita ]
-‎​Alamat Lengkap Tempat: [ Contoh: Jl. Merdeka No. 45, Sentul Jawa Barat ]
-‎​Link Google Maps (Opsional): [ Masukkan link maps di sini jika ada ]
-‎​3. Detail Acara Resepsi
-‎​Hari & Tanggal: [ Contoh: Kamis, 20 Agustus 2026 ]
-‎​Waktu (WIB): [ Contoh: 11.00 WIB - 14.00 WIB ]
-‎​Nama Tempat/Gedung: [ Contoh: magal tambud  ]
-‎​Alamat Lengkap Tempat: [ Contoh: Jl. Kenanga No. 12, Bandung, Jawa Barat ]
-‎​Link Google Maps (Opsional): [ Masukkan link maps di sini jika ada ]
-‎​4. Elemen Tambahan (Opsional)
-‎​Quotes/Ayat Suci Favorit: [ Contoh: Ar-Rum ayat 21 / Quotes romantis pilihanmu ]
-‎​Nama File Foto Prewed: [ Contoh: prewed-1.jpg ]
-‎​Akun Instagram Pengantin (Untuk disematkan): [ @jejew]
-‎
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Digital - Faizal & Rike</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            font-family: 'Courier Prime', monospace;
+            background-color: #f4ebd0; 
+            color: #333333;
+            scroll-behavior: smooth;
+        }
+
+        body::before {
+            content: " ";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.05;
+            z-index: 9999;
+            pointer-events: none;
+            background: url('https://www.transparenttextures.com/patterns/cardboard-flat.png');
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            border-bottom: 2px dashed #b68d40; 
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #122620;
+            letter-spacing: 2px;
+        }
+
+        h1 { font-size: 3rem; margin: 15px 0; }
+        h2 { font-size: 2rem; margin-bottom: 20px; }
+        h3 { font-size: 1.5rem; color: #b68d40; }
+        p { font-size: 1.1rem; max-width: 600px; line-height: 1.6; margin: 5px 0; }
+        
+        .parent-info {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            max-width: 900px;
+        }
+
+        .event-card {
+            background: #ffffff;
+            padding: 30px;
+            border: 1px solid #b68d40;
+            box-shadow: 6px 6px 0px #122620;
+            flex: 1;
+            min-width: 280px;
+            max-width: 400px;
+        }
+
+        .photo-frame {
+            background: #ffffff;
+            padding: 15px 15px 40px 15px;
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+            border: 1px solid #ddd;
+            transform: rotate(-1deg);
+            transition: transform 0.3s;
+            max-width: 80%;
+            margin: 20px 0;
+        }
+        .photo-frame:hover {
+            transform: rotate(1deg);
+        }
+        .photo-frame img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            filter: sepia(30%) contrast(95%); 
+        }
+
+        .countdown-container {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .countdown-box {
+            background-color: #122620;
+            color: #f4ebd0;
+            padding: 15px;
+            border-radius: 4px;
+            min-width: 75px;
+            box-shadow: 4px 4px 0px #b68d40;
+        }
+        .countdown-box span {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .scroll-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #b68d40;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: 3px 3px 0px #122620;
+            z-index: 1000;
+        }
+        .btn-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: #122620;
+            color: #f4ebd0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            box-shadow: 3px 3px 0px #b68d40;
+        }
+
+        .quotes {
+            font-style: italic;
+            max-width: 500px;
+            border-left: 3px solid #b68d40;
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="scroll-control" id="scrollBtn" onclick="toggleAutoscroll()">⏸ Jeda Gulir</button>
+
+    <div class="section">
+        <p>THE WEDDING OF</p>
+        <h1>Faizal & Rike</h1>
+        <p>Kamis, 20 Agustus 2026</p>
+        
+        <div class="photo-frame" style="transform: rotate(-2deg);">
+            <img src="foto1.jpg" alt="Prewedding Faizal & Rike 1">
+        </div>
+        
+        <div class="quotes">
+            "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang." <br><strong>(Ar-Rum: 21)</strong>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Mempelai Pengantin</h2>
+        
+        <div>
+            <h3>Faizal</h3>
+            <p><strong>Rini</strong></p>
+            <p class="parent-info">Putra dari Bapak Abdul Manaf & Ibu Juniyanti</p>
+        </div>
+        
+        <p style="font-size: 1.5rem; margin: 15px 0; color: #b68d40;">&</p>
+        
+        <div>
+            <h3>Rike</h3>
+            <p><strong>Ike</strong></p>
+            <p class="parent-info">Putri dari Bapak Pak Wien & Ibu Bu Wien</p>
+        </div>
+
+        <div class="photo-frame" style="transform: rotate(2deg);">
+            <img src="foto2.jpg" alt="Prewedding Faizal & Rike 2">
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Menuju Hari Bahagia</h2>
+        <p>Hitung mundur menuju acara resepsi pernikahan kami:</p>
+        
+        <div class="countdown-container">
+            <div class="countdown-box"><span id="days">00</span>Hari</div>
+            <div class="countdown-box"><span id="hours">00</span>Jam</div>
+            <div class="countdown-box"><span id="minutes">00</span>Menit</div>
+            <div class="countdown-box"><span id="seconds">00</span>Detik</div>
+        </div>
+
+        <div class="photo-frame" style="transform: rotate(-1deg);">
+            <img src="foto3.jpg" alt="Prewedding Faizal & Rike 3">
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Waktu & Tempat Acara</h2>
+        
+        <div class="card-container">
+            <div class="event-card">
+                <h3>Akad Nikah</h3>
+                <p><strong>Kamis, 20 Agustus 2026</strong></p>
+                <p>08.00 WIB - Selesai</p>
+                <hr style="border: 0; border-top: 1px dashed #b68d40; margin: 15px 0;">
+                <p><strong>Kediaman Mempelai Wanita</strong></p>
+                <p>Jl. Merdeka No. 45, Sentul, Jawa Barat</p>
+            </div>
+
+            <div class="event-card">
+                <h3>Resepsi</h3>
+                <p><strong>Kamis, 20 Agustus 2026</strong></p>
+                <p>11.00 WIB - 14.00 WIB</p>
+                <hr style="border: 0; border-top: 1px dashed #b68d40; margin: 15px 0;">
+                <p><strong>Magal Tambud</strong></p>
+                <p>Jl. Kenanga No. 12, Bandung, Jawa Barat</p>
+            </div>
+        </div>
+
+        <div class="photo-frame" style="transform: rotate(3deg);">
+            <img src="foto4.jpg" alt="Prewedding Faizal & Rike 4">
+        </div>
+    </div>
+
+    <div class="section" style="border-bottom: none;">
+        <h2>Terima Kasih</h2>
+        <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
+        
+        <p style="margin-top: 40px;">Ikuti momen kami di Instagram:</p>
+        <a href="https://instagram.com/jejew" target="_blank" class="btn-link">📸 @jejew</a>
+        
+        <p style="font-style: italic; margin-top: 60px; color: #b68d40;">- Faizal & Rike -</p>
+    </div>
+
+    <script>
+        const weddingDate = new Date("Aug 20, 2026 11:00:00").getTime();
+
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector(".countdown-container").innerHTML = "<h3>Acara Telah Berlangsung!</h3>";
+            }
+        }, 1000);
+
+        let scrollSpeed = 1; 
+        let scrollInterval;
+        let isScrolling = true;
+
+        function startAutoscroll() {
+            scrollInterval = setInterval(function() {
+                window.scrollBy(0, scrollSpeed);
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                }
+            }, 35); 
+        }
+
+        function toggleAutoscroll() {
+            const btn = document.getElementById("scrollBtn");
+            if (isScrolling) {
+                clearInterval(scrollInterval);
+                btn.innerHTML = "▶️ Jalankan Gulir";
+                isScrolling = false;
+            } else {
+                startAutoscroll();
+                btn.innerHTML = "⏸ Jeda Gulir";
+                isScrolling = true;
+            }
+        }
+
+        window.onload = function() {
+            startAutoscroll();
+        };
+    </script>
+</body>
+</html>
